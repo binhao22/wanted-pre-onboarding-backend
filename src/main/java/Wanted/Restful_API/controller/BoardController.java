@@ -3,6 +3,7 @@ package Wanted.Restful_API.controller;
 import Wanted.Restful_API.dto.BoardDTO;
 import Wanted.Restful_API.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,9 +23,9 @@ public class BoardController {
 
     // 게시글 작성
     @PostMapping("/save")
-    public String save(@ModelAttribute BoardDTO boardDTO) {
+    public ResponseEntity<String> save(@ModelAttribute BoardDTO boardDTO) {
         boardService.save(boardDTO);
-        return "redirect:/";
+        return ResponseEntity.ok().body("게시글 등록 완료");
     }
 
 }

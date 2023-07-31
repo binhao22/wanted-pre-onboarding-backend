@@ -22,14 +22,16 @@ public class MemberEntity{
     @Column
     private String memberPassword;
 
+    @Column
+    private String memberRoles;
 
-    @Autowired
-    private static PasswordEncoder passwordEncoder;
     // Dto -> Entity
-    public static MemberEntity toSaveEntity(MemberDTO memberDTO) {
+    public static MemberEntity toSaveEntity(MemberDTO memberDTO, PasswordEncoder passwordEncoder) {
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setMemberEmail(memberDTO.getMemberEmail());
-        memberEntity.setMemberPassword(passwordEncoder.encode(memberDTO.getMemberPassword()));
+        memberEntity.setMemberPassword(passwordEncoder.encode(memberEntity.memberPassword));
+        memberEntity.setMemberRoles("USER");
+//        memberEntity.setMemberPassword(passwordEncoder.encode(memberDTO.getMemberPassword()));
         return memberEntity;
     }
 }
