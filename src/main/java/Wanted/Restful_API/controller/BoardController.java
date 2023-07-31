@@ -17,14 +17,14 @@ public class BoardController {
 
     @GetMapping("/save")
     public String saveForm() {
-        return "save";
+        return "saveBoard";
     }
 
     // 게시글 작성
     @PostMapping("/save")
     public String save(@ModelAttribute BoardDTO boardDTO) {
         boardService.save(boardDTO);
-        return "index";
+        return "redirect:/";
     }
 
 }

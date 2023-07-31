@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-// DTO 데이터 전송 객체 생성, 사용자 입력 -> Dto
+// DTO 데이터 전송 객체 생성, 게시글 입력 -> 게시글 Dto
 public class BoardDTO {
     private Long id;
     private String boardWriter;
