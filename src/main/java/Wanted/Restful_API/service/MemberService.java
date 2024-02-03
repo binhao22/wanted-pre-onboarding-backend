@@ -17,7 +17,7 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
     private final MemberRepository memberRepository;
 
-    // Entity -> DB
+    // Entity -> DB.
     public void save(MemberDTO memberDTO) {
         MemberEntity memberEntity = MemberEntity.toSaveEntity(memberDTO, passwordEncoder);
         memberRepository.save(memberEntity);
